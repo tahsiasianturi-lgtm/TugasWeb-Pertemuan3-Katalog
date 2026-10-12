@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)https://tahsiasianturi-lgtm.github.io/tugas-rutin-3-katalog-produk/ -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katalog Produk Responsif — Nadaya Audio</title>
+<script src="./Katalog Produk Responsif — Nadaya Audio_files/saved_resource"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Katalog Produk Responsif — Nadaya Audio_files/css2" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F1416;
+    --panel:#171E21;
+    --panel-2:#1E2629;
+    --teal:#2DD4BF;
+    --amber:#F5A623;
+    --text:#E7EDEF;
+    --muted:#93A3A8;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+  }
+  h1,h2,.brand,.price{font-family:'Space Grotesk',sans-serif}
+
+  /* clamp() untuk typography fluid — requirement #7 */
+  .hero-title{
+    font-size:clamp(1.9rem, 4.5vw + 0.5rem, 3.4rem);
+    line-height:1.05;
+  }
+  .hero-sub{
+    font-size:clamp(0.95rem, 1vw + 0.6rem, 1.15rem);
+  }
+  .price{
+    font-size:clamp(1.05rem, 1.2vw + 0.6rem, 1.35rem);
+  }
+  .section-title{
+    font-size:clamp(1.3rem, 2vw + 0.6rem, 1.9rem);
+  }
+
+  .card{
+    background:var(--panel);
+    border:1px solid #24303380;
+    transition:transform .2s ease, border-color .2s ease;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    border-color:var(--teal);
+  }
+
+  /* Responsive image — requirement #6 */
+  .product-img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    display:block;
+  }
+
+  .btn-amber{
+    background:var(--amber);
+    color:#161311;
+  }
+  .btn-amber:hover{ filter:brightness(1.08); }
+
+  #mobileMenu{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .28s ease;
+  }
+  #mobileMenu.open{ max-height:220px; }
+
+  /* Badge breakpoint — alat bantu dokumentasi testing (requirement #9) */
+  #bpBadge{
+    position:fixed; bottom:14px; right:14px; z-index:50;
+    font-family:'Space Grotesk',sans-serif; font-size:12px;
+    padding:6px 10px; border-radius:999px;
+    background:var(--teal); color:#0b1413; font-weight:700;
+    box-shadow:0 4px 14px rgba(0,0,0,.4);
+  }
+</style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.sticky{position:sticky}.top-0{top:0px}.z-40{z-index:40}.mx-auto{margin-left:auto;margin-right:auto}.-mr-2{margin-right:-0.5rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-6{margin-bottom:1.5rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-16{height:4rem}.h-6{height:1.5rem}.min-h-screen{min-height:100vh}.w-6{width:1.5rem}.max-w-2xl{max-width:42rem}.max-w-7xl{max-width:80rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-5{gap:1.25rem}.gap-8{gap:2rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-\[\#232C2F\]{--tw-border-opacity:1;border-color:rgb(35 44 47 / var(--tw-border-opacity, 1))}.bg-\[\#0F1416\]\/90{background-color:rgb(15 20 22 / 0.9)}.p-2{padding:0.5rem}.p-4{padding:1rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.pb-10{padding-bottom:2.5rem}.pb-20{padding-bottom:5rem}.pb-4{padding-bottom:1rem}.pb-6{padding-bottom:1.5rem}.pt-14{padding-top:3.5rem}.text-center{text-align:center}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.text-\[var\(--muted\)\]{color:var(--muted)}.text-\[var\(--teal\)\]{color:var(--teal)}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:text-\[var\(--teal\)\]:hover{color:var(--teal)}@media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}@media (min-width: 768px){.md\:flex{display:flex}.md\:hidden{display:none}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (min-width: 1280px){.xl\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style></head>
+<body class="min-h-screen">
+
+<!-- ============ NAVBAR (requirement #5: hamburger di mobile) ============ -->
+<header class="sticky top-0 z-40 backdrop-blur bg-[#0F1416]/90 border-b border-[#232C2F]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <span class="brand text-lg font-bold tracking-tight">
+        nadaya<span style="color:var(--teal)">audio</span>
+      </span>
+
+      <!-- nav desktop, tersembunyi di mobile -->
+      <nav class="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">
+        <a href="https://tahsiasianturi-lgtm.github.io/tugas-rutin-3-katalog-produk/#katalog" class="hover:text-[var(--teal)] transition">Katalog</a>
+        <a href="https://tahsiasianturi-lgtm.github.io/tugas-rutin-3-katalog-produk/#" class="hover:text-[var(--teal)] transition">Kategori</a>
+        <a href="https://tahsiasianturi-lgtm.github.io/tugas-rutin-3-katalog-produk/#" class="hover:text-[var(--teal)] transition">Promo</a>
+        <a href="https://tahsiasianturi-lgtm.github.io/tugas-rutin-3-katalog-produk/#footer" class="hover:text-[var(--teal)] transition">Kontak</a>
+      </nav>
+
+      <!-- tombol hamburger, hanya tampil di mobile -->
+      <button id="hamburgerBtn" class="md:hidden p-2 -mr-2" aria-label="Buka menu" aria-expanded="false">
+        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- panel menu mobile (dropdown) -->
+    <nav id="mobileMenu" class="md:hidden">
+      <div class="flex flex-col gap-1 pb-4 text-sm text-[var(--muted)]">
+        <a href="https://tahsiasianturi-lgtm.github.io/tugas-rutin-3-katalog-produk/#katalog" class="py-2 border-b border-[#232C2F]">Katalog</a>
+        <a href="https://tahsiasianturi-lgtm.github.io/tugas-rutin-3-katalog-produk/#" class="py-2 border-b border-[#232C2F]">Kategori</a>
+        <a href="https://tahsiasianturi-lgtm.github.io/tugas-rutin-3-katalog-produk/#" class="py-2 border-b border-[#232C2F]">Promo</a>
+        <a href="https://tahsiasianturi-lgtm.github.io/tugas-rutin-3-katalog-produk/#footer" class="py-2">Kontak</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
+  <p class="text-xs tracking-wide uppercase text-[var(--teal)] mb-3">Tugas Rutin 3 — Case Method</p>
+  <h1 class="hero-title font-bold max-w-2xl">Perangkat audio &amp; aksesori untuk ruang kerjamu.</h1>
+  <p class="hero-sub text-[var(--muted)] max-w-xl mt-4">
+    Semua produk di bawah dirancang mobile-first: coba lebarkan atau persempit jendela browser dan perhatikan
+    jumlah kolom grid ikut berubah mengikuti breakpoint.
+  </p>
+</section>
+
+<!-- ============ GRID PRODUK (requirement #3 & #4) ============ -->
+<section id="katalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+  <div class="flex items-baseline justify-between mb-6">
+    <h2 class="section-title font-bold">Katalog Produk</h2>
+    <span class="text-xs text-[var(--muted)]">8 item</span>
+  </div>
+
+  <!-- grid: 1 kolom (mobile) -> 2 kolom (sm, ≥640px) -> 3 kolom (lg, ≥1024px) -> 4 kolom (xl, ≥1280px) -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+
+    <!-- Card 1 -->
+    <article class="card rounded-xl overflow-hidden flex flex-col">
+      <img class="product-img" alt="Headphone nirkabel warna teal" src="./Katalog Produk Responsif — Nadaya Audio_files/photo-1553774661-0651f14b2da4" loading="lazy">
+      <div class="p-4 flex flex-col flex-1">
+        <h3 class="font-semibold">Headphone Nirkabel X1</h3>
+        <p class="text-xs text-[var(--muted)] mt-1 flex-1">Noise cancelling, baterai 30 jam.</p>
+        <div class="flex items-center justify-between mt-4">
+          <span class="price font-bold">Rp 549.000</span>
+          <button class="btn-amber text-xs font-semibold px-3 py-2 rounded-lg">+ Keranjang</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="card rounded-xl overflow-hidden flex flex-col">
+      <img class="product-img" alt="Speaker bluetooth portable" src="./Katalog Produk Responsif — Nadaya Audio_files/photo-1549400854-b4300f444934" loading="lazy">
+      <div class="p-4 flex flex-col flex-1">
+        <h3 class="font-semibold">Speaker Portable Boom</h3>
+        <p class="text-xs text-[var(--muted)] mt-1 flex-1">Tahan air IPX6, suara 360°.</p>
+        <div class="flex items-center justify-between mt-4">
+          <span class="price font-bold">Rp 385.000</span>
+          <button class="btn-amber text-xs font-semibold px-3 py-2 rounded-lg">+ Keranjang</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="card rounded-xl overflow-hidden flex flex-col">
+      <img class="product-img" alt="Smartwatch layar AMOLED" src="./Katalog Produk Responsif — Nadaya Audio_files/photo-1698729616379-78aa545b1043" loading="lazy">
+      <div class="p-4 flex flex-col flex-1">
+        <h3 class="font-semibold">Smartwatch Pulse 2</h3>
+        <p class="text-xs text-[var(--muted)] mt-1 flex-1">Monitor detak jantung &amp; GPS.</p>
+        <div class="flex items-center justify-between mt-4">
+          <span class="price font-bold">Rp 799.000</span>
+          <button class="btn-amber text-xs font-semibold px-3 py-2 rounded-lg">+ Keranjang</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="card rounded-xl overflow-hidden flex flex-col">
+      <img class="product-img" alt="Keyboard mekanikal" src="./Katalog Produk Responsif — Nadaya Audio_files/photo-1756387462457-9afa97d2dbe8" loading="lazy">
+      <div class="p-4 flex flex-col flex-1">
+        <h3 class="font-semibold">Keyboard Mekanikal K84</h3>
+        <p class="text-xs text-[var(--muted)] mt-1 flex-1">Hot-swappable, RGB per-key.</p>
+        <div class="flex items-center justify-between mt-4">
+          <span class="price font-bold">Rp 620.000</span>
+          <button class="btn-amber text-xs font-semibold px-3 py-2 rounded-lg">+ Keranjang</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 5 -->
+    <article class="card rounded-xl overflow-hidden flex flex-col">
+      <img class="product-img" alt="Mouse wireless ergonomis" src="./Katalog Produk Responsif — Nadaya Audio_files/photo-1585816517178-2398c69d12c6" loading="lazy">
+      <div class="p-4 flex flex-col flex-1">
+        <h3 class="font-semibold">Mouse Wireless Glide</h3>
+        <p class="text-xs text-[var(--muted)] mt-1 flex-1">Ergonomis, sensor 4000 DPI.</p>
+        <div class="flex items-center justify-between mt-4">
+          <span class="price font-bold">Rp 215.000</span>
+          <button class="btn-amber text-xs font-semibold px-3 py-2 rounded-lg">+ Keranjang</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 6 -->
+    <article class="card rounded-xl overflow-hidden flex flex-col">
+      <img class="product-img" alt="Powerbank fast charging" src="./Katalog Produk Responsif — Nadaya Audio_files/photo-1604160687800-f7799a525a33" loading="lazy">
+      <div class="p-4 flex flex-col flex-1">
+        <h3 class="font-semibold">Powerbank FastCharge 20K</h3>
+        <p class="text-xs text-[var(--muted)] mt-1 flex-1">20.000mAh, PD 30W dua port.</p>
+        <div class="flex items-center justify-between mt-4">
+          <span class="price font-bold">Rp 349.000</span>
+          <button class="btn-amber text-xs font-semibold px-3 py-2 rounded-lg">+ Keranjang</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 7 -->
+    <article class="card rounded-xl overflow-hidden flex flex-col">
+      <img class="product-img" alt="Webcam full HD" src="./Katalog Produk Responsif — Nadaya Audio_files/photo-1750975314977-374f2290db53" loading="lazy">
+      <div class="p-4 flex flex-col flex-1">
+        <h3 class="font-semibold">Webcam ClearView FHD</h3>
+        <p class="text-xs text-[var(--muted)] mt-1 flex-1">1080p 60fps, autofokus.</p>
+        <div class="flex items-center justify-between mt-4">
+          <span class="price font-bold">Rp 275.000</span>
+          <button class="btn-amber text-xs font-semibold px-3 py-2 rounded-lg">+ Keranjang</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 8 -->
+    <article class="card rounded-xl overflow-hidden flex flex-col">
+      <img class="product-img" alt="Lampu meja LED" src="./Katalog Produk Responsif — Nadaya Audio_files/photo-1644674452087-dea146bab84a" loading="lazy">
+      <div class="p-4 flex flex-col flex-1">
+        <h3 class="font-semibold">Lampu Meja LED Focus</h3>
+        <p class="text-xs text-[var(--muted)] mt-1 flex-1">3 mode cahaya, dimmable.</p>
+        <div class="flex items-center justify-between mt-4">
+          <span class="price font-bold">Rp 189.000</span>
+          <button class="btn-amber text-xs font-semibold px-3 py-2 rounded-lg">+ Keranjang</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER (requirement #8) ============ -->
+<footer id="footer" class="border-t border-[#232C2F]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm">
+    <div>
+      <span class="brand font-bold">nadaya<span style="color:var(--teal)">audio</span></span>
+      <p class="text-[var(--muted)] mt-2">Katalog produk demo untuk Tugas Rutin 3 — Pemrograman Web.</p>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-2">Tautan</h4>
+      <ul class="text-[var(--muted)] space-y-1">
+        <li><a href="https://tahsiasianturi-lgtm.github.io/tugas-rutin-3-katalog-produk/#" class="hover:text-[var(--teal)]">Tentang</a></li>
+        <li><a href="https://tahsiasianturi-lgtm.github.io/tugas-rutin-3-katalog-produk/#" class="hover:text-[var(--teal)]">Bantuan</a></li>
+        <li><a href="https://tahsiasianturi-lgtm.github.io/tugas-rutin-3-katalog-produk/#" class="hover:text-[var(--teal)]">Kebijakan Privasi</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-2">Kontak</h4>
+      <p class="text-[var(--muted)]">hello@nadayaaudio.test</p>
+      <p class="text-[var(--muted)]">Medan, Indonesia</p>
+    </div>
+  </div>
+  <div class="text-center text-xs text-[var(--muted)] pb-6">© 2026 Nadaya Audio — dibuat untuk keperluan tugas kuliah.</div>
+</footer>
+
+<!-- Badge breakpoint aktif: bantu screenshot dokumentasi testing -->
+<div id="bpBadge">1440px — XL Desktop (≥1280px) · 4 kolom</div>
+
+<script>
+  // Toggle menu hamburger
+  const btn = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  const iconOpen = document.getElementById('iconOpen');
+  const iconClose = document.getElementById('iconClose');
+  btn.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    iconOpen.classList.toggle('hidden', isOpen);
+    iconClose.classList.toggle('hidden', !isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Badge penunjuk breakpoint aktif (khusus untuk dokumentasi testing, boleh dihapus saat submit final)
+  const badge = document.getElementById('bpBadge');
+  function updateBadge(){
+    const w = window.innerWidth;
+    let label = 'Mobile (<640px)';
+    if (w >= 1280) label = 'XL Desktop (≥1280px) · 4 kolom';
+    else if (w >= 1024) label = 'Desktop (≥1024px) · 3 kolom';
+    else if (w >= 640) label = 'Tablet (≥640px) · 2 kolom';
+    else label = 'Mobile (<640px) · 1 kolom';
+    badge.textContent = `${w}px — ${label}`;
+  }
+  updateBadge();
+  window.addEventListener('resize', updateBadge);
+</script>
+
+
+</body></html>
